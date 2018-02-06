@@ -1,0 +1,82 @@
+<html>
+
+<body>
+
+</html>
+
+<div>
+    <span>Gender</span>
+    <span>
+              <input type="radio" name="sex" value="Male">Male <br>
+              <input type="radio" name="sex" value="Female">Female
+        </span>
+</div>
+<div>
+    <span>Color</span>
+    <span>
+            <input type="color" name="color" value="">
+        </span>
+</div>
+
+
+
+<div>
+    <span>Culture:</span>
+    <select id="culture" onchange="cultureSelected()">
+            <option value="nan">Please select one:</option>
+            <option value="west">Western Horoscope</option>
+            <option value="chi">Chinese Horoscope</option>
+        </select>
+</div>
+
+<div>
+    <span>Zodiac:</span>
+    <select id="zodiac" disabled>
+        </select>
+</div>
+
+<script>
+    var western = ["ARIES", "TAURUS"];
+    var chinese = ["Mice", "Cow"];
+
+    function cultureSelected() {
+        // alert(document.getElementById("culture").value);
+
+        var culture = document.getElementById("culture").value;
+
+        var zodiac = document.getElementById("zodiac");
+        zodiac.options.length = 0;
+
+        if (culture == "west") {
+
+            for (item of western) {
+
+                var option = document.createElement("option");
+                option.text = item;
+                zodiac.add(option);
+
+            }
+
+            zodiac.disabled = false;
+
+        } else if (culture == "chi") {
+
+            for (item of chinese) {
+
+                var option = document.createElement("option");
+                option.text = item;
+                zodiac.add(option);
+
+            }
+            zodiac.disabled = false;
+
+        } else {
+            zodiac.disabled = true;
+        }
+
+    }
+</script>
+
+</body>
+
+</html>
